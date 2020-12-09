@@ -27,8 +27,8 @@
 
 <body>
     <div class="ui small menu d-sm-none d-md-none d-lg-flex d-xl-flex">
-        <div class="header item text-sugu-2">
-            AWN KA SUGU
+        <div class="header item">
+            <a class="text-sugu-2 text-decoration-none" href="{% url 'index' %}">AWN KA SUGU</a>
         </div>
         <a class="item active">
             Une meilleure expérience du shopping e-commerce
@@ -59,7 +59,7 @@
             </div>
             <div class="offset-sm-0 offset-md-1 offset-lg-0 col-sm-8 col-md-6 col-lg-4 mt-md-4 mt-lg-0 mt-2">
                 <a class="font-weight-bold text-decoration-none text-white bg-sugu-2 p-2 mr-lg-4" href="#"><span
-                        class="fa fa-shopping-cart pr-1"></span> {{h|intcomma}} FCFA</a>
+                        class="fa fa-shopping-cart pr-1"></span> 0 FCFA</a>
                 <a class="font-weight-bold text-decoration-none text-white bg-sugu-2 p-2" href="#"><span
                         class="fa fa-user pr-1"></span> Mon compte</a>
             </div>
@@ -83,7 +83,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav small font-weight-bold">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Téléphones & Gadgets</a>

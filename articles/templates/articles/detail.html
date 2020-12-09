@@ -46,7 +46,7 @@
                     </p>
                     <p class="font-weight-bold h4">
                         {{ article.price|intcomma }} {{ article.devise }}
-                        <form action="{% url 'add_panner' article.slug 1 %}" method="POST">
+                        <form action="" method="POST">
                             {% csrf_token %}
                             <div class="input-group mb-3 col-6">
                                 <input name="quantity" type="number" class="form-control" min="1" value="1" aria-label="quantity"
