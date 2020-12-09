@@ -1,0 +1,4 @@
+Django==3.0
+mysqlclient
+pillow
+django-debug-toolbar

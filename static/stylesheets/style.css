@@ -1,0 +1,76 @@
+/* Screen GENERAL */
+
+.text-title {
+	font-family: 'Ubuntu Condensed';
+	font-weight: 900;
+	font-size: 20px;
+}
+
+.text-white {
+	color: #ffffff;
+}
+
+.text-black {
+	color: #000000;
+}
+
+.bg-white {
+	background-color: #ffffff;
+}
+
+.bg-black {
+	background-color: #000000;
+}
+
+.bg-sugu {
+	background-color: rgb(0, 22, 87) !important;
+}
+
+.bg-sugu-2 {
+	background-color: rgb(163, 0, 0) !important;
+}
+
+.text-sugu {
+	color: rgb(0, 22, 87) !important;
+}
+
+.text-sugu-2 {
+	color: rgb(163, 0, 0) !important;
+}
+
+.text-underline {
+	text-underline-offset: 3px;
+}
+
+.btn-outline-sugu {
+	color: rgb(0, 22, 87);
+	border-color: rgb(0, 22, 87);
+  }
+  
+  .btn-outline-sugu:hover {
+	color: #fff;
+	background-color: rgb(0, 22, 87);
+	border-color: rgb(0, 22, 87);
+  }
+
+
+
+/* Screen SM */
+@media (min-width: 576px) {
+	
+  }
+  
+/* Screen MD */
+  @media (min-width: 768px) {
+	
+  }
+
+/* Screen LG */
+  @media (min-width: 992px) {
+	
+  }
+  
+/* Screen XL */
+  @media (min-width: 1200px) {
+	
+  }

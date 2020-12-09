@@ -1,0 +1,182 @@
+{% extends 'layouts/default.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block action_to_shop %}
+<div class="ui ordered steps">
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Shipping</div>
+            <div class="description">Choose your shipping options</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Billing</div>
+            <div class="description">Enter billing information</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Billing</div>
+            <div class="description">Enter billing information</div>
+        </div>
+    </div>
+    <div class="active step">
+        <div class="content">
+            <div class="title">Confirm Order</div>
+            <div class="description">Verify order details</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block slider %}
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <a href="#"><img src="{% static 'img/illustration-02.png' %}" height="250" class="d-block w-100" alt="..."></a>
+            <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <a href="#"><img src="{% static 'img/personnes-illustration-presentation-entreprise_33099-492.jpg' %}"
+                    height="250" class="d-block w-100" alt="..."></a>
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <a href="#"><img src="{% static 'img/raw.jpeg' %}" height="250" class="d-block w-100" alt="..."></a>
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="bg-sugu rounded p-2">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="bg-sugu rounded p-2">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+{% endblock %}
+
+{% block article_promo %}
+    {% for article in articles_promo %}
+    <article class="col-sm-6 col-md-4 col-lg-4 mb-2 border-left p-4 article">
+        <div class="small mb-n2">
+            <a class="text-secondary" href="#">Accessoires</a>
+        </div>
+        <div class="ui small header">
+            <a class="text-decoration-none text-sugu" href="{% url 'detail' article.slug %}">{{ article.title}}</a>
+        </div>
+        <div class="ui medium image">
+            <a href="{% url 'detail' article.slug %}"><img src="{% static article.cover.url %}" alt=""></a>
+        </div>
+        <div class="text-sugu-2 font-weight-bold">
+            <small style="text-decoration: line-through;" class="mr-2">{{ article.price|intcomma}} {{ article.devise}}</small>
+            {{ article.promo_price|intcomma}} {{ article.devise}}
+            <a class="small btn btn-sm btn-outline-sugu w-100" href="#"><span
+                    class="fa fa-shopping-cart"></span> Ajouter au panier</a>
+        </div>
+    </article>
+    {% empty %}
+        <h2>No posts available</h2>
+    {% endfor %}
+{% endblock %}
+
+{% block article %}
+    {% for article in articles %}
+    <article class="col-sm-4 col-md-3 col-lg-2 mb-2 border-left p-4 article">
+        <div class="small mb-n2">
+            <!-- {% for c in categories %}
+            <a class="text-secondary" href="#">{{ c.category }}</a> - 
+            {% endfor %} -->
+            <a class="text-secondary" href="#">Accessoires}</a> - 
+        </div>
+        <div class="ui small header">
+            <a href="{% url 'detail' article.slug %}" class="text-decoration-none text-sugu" href="{% url 'detail' article.slug %}">{{ article.title }}</a>
+        </div>
+        <div class="ui small image">
+            <a href="{% url 'detail' article.slug %}"><img src="{% static article.cover.url %}" alt=""></a>
+        </div>
+        <div class="text-sugu-2 font-weight-bold">
+            {{ article.price|intcomma }} {{ article.devise }}
+            <a href="{% url 'add_panner' article.slug 1 %}" class="small btn btn-sm btn-outline-sugu w-100" href="#"><span
+                    class="fa fa-shopping-cart"></span> Panier</a>
+        </div>
+    </article>
+    {% empty %}
+    <h3>No posts available</h3>
+    {% endfor %}
+{% endblock %}
+
+{% block section_separator_blue %}
+<h3>Actuellement en </h3>
+{% endblock %}
+
+{% block article_star %}
+    {% for article in articles_star %}
+    <article class="col-sm-12 col-md-12 col-lg-12 mb-2 border-left p-4 article">
+        <div class="small mb-n2">
+            <a class="text-secondary" href="#">Accessoires</a>
+        </div>
+        <div class="ui small header">
+            <a class="text-decoration-none text-sugu" href="{% url 'detail' article.slug %}">{{ article.title}}</a>
+        </div>
+        <div class="ui large image">
+            <a href="{% url 'detail' article.slug %}"><img src="{% static article.cover.url %}" alt=""></a>
+        </div>
+        <div class="text-sugu-2 font-weight-bold">
+            {{ article.price|intcomma }} {{ article.devise}}
+            <a class="small btn btn-sm btn-outline-sugu w-100" href="#"><span
+                    class="fa fa-shopping-cart"></span> Ajouter au panier</a>
+        </div>
+    </article>
+    {% empty %}
+    <h3>No posts available</h3>
+    {% endfor %}
+{% endblock %}
+
+{% block article_2 %}
+    {% for article in articles_2 %}
+    <article class="col-sm-4 col-md-4 col-lg-4 mb-2 border-left p-4 article">
+        <div class="small mb-n2">
+            <a class="text-secondary" href="#">Accessoires</a>
+        </div>
+        <div class="ui small header">
+            <a class="text-decoration-none text-sugu" href="{% url 'detail' article.slug %}">{{ article.title}}</a>
+        </div>
+        <div class="ui medium image">
+            <a href="{% url 'detail' article.slug %}"><img src="{% static article.cover.url %}" alt=""></a>
+        </div>
+        <div class="text-sugu-2 font-weight-bold">
+            {{ article.price|intcomma }} {{ article.devise }}
+            <a class="small btn btn-sm btn-outline-sugu w-100" href="#"><span
+                    class="fa fa-shopping-cart"></span> Panier</a>
+        </div>
+    </article>
+    {% empty %}
+    <h3>No posts available</h3>
+    {% endfor %}
+{% endblock %}
+
+{% block section_separator_red %}
+<h3>Hahaa</h3>
+{% endblock %}
