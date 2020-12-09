@@ -1,8 +1,12 @@
 import settings
 
+# Toujours à TRUE en mode développement
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+if not DEBUG:
+    ALLOWED_HOSTS = ['localhost']
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
