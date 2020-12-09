@@ -1,4 +1,4 @@
-./venv
+venv/*
 sugu/dev.py
 static/stylesheets/bootstrap-5.0.0-beta1.zip
 static/stylesheets/bootstrap-5.0.0-beta1
