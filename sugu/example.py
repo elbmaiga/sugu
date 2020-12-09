@@ -1,4 +1,4 @@
-import settings
+from .settings import *
 
 # Toujours à TRUE en mode développement
 DEBUG = True
