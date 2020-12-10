@@ -6,10 +6,12 @@
     {% for article in articles %}
     <article class="col-sm-4 col-md-3 col-lg-2 mb-2 border-left p-4 article">
         <div class="small mb-n2">
-            <!-- {% for c in categories %}
-            <a class="text-secondary" href="#">{{ c.category }}</a> - 
-            {% endfor %} -->
-            <a class="text-secondary" href="#">Accessoires}</a> - 
+            {% for categories in article.category.all %}
+            <a class="text-secondary" href="{% url 'search_category' categories %}">{{ categories }}</a>
+            {% if not forloop.last  %}
+            -
+            {% endif %}
+            {% endfor %}
         </div>
         <div class="ui small header">
             <a href="{% url 'detail' article.slug %}" class="text-decoration-none text-sugu" href="{% url 'detail' article.slug %}">{{ article.title }}</a>

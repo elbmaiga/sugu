@@ -5,9 +5,15 @@
 {% block article %}
 <section class="row mt-4">
     <div class="col-3">
-        <div class="ui segment">
-            <div class="ui left mini rail">
+        <div class="ui compact menu">
+            <div class="ui simple dropdown item">
                 Afficher toutes les Catégories
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item">Choice 1</div>
+                    <div class="item">Choice 2</div>
+                    <div class="item">Choice 3</div>
+                </div>
             </div>
         </div>
     </div>
@@ -32,8 +38,8 @@
             <div class="col-8">
                 <div class="small d-block">
                     <!-- <a class="text-secondary pr-2" href="#">Accessoires</a> -->
-                    {% for c in categories %}
-                    <a class="text-secondary pr-2" href="{% url 'search_category' c.category %}">{{ c.category }}</a>
+                    {% for categories in article.category.all %}
+                    <a class="text-secondary px-2" href="{% url 'search_category' categories %}">{{ categories }}</a>
                     {% endfor %}
                 </div>
                 <div class="font-weight-bold pb-4 border-bottom">
@@ -46,17 +52,17 @@
                     </p>
                     <p class="font-weight-bold h4">
                         {{ article.price|intcomma }} {{ article.devise }}
-                        <form action="" method="POST">
-                            {% csrf_token %}
-                            <div class="input-group mb-3 col-6">
-                                <input name="quantity" type="number" class="form-control" min="1" value="1" aria-label="quantity"
-                                    aria-describedby="button-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-sugu" type="submit" id="button-addon2">Ajouter au
-                                        panier</button>
-                                </div>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="input-group mb-3 col-6">
+                            <input name="quantity" type="number" class="form-control" min="1" value="1"
+                                aria-label="quantity" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-sugu" type="submit" id="button-addon2">Ajouter au
+                                    panier</button>
                             </div>
-                        </form>
+                        </div>
+                    </form>
                     </p>
                 </div>
                 <div>

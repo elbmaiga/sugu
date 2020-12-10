@@ -2,7 +2,9 @@ from django.contrib import admin
 
 from .models import *
 # Register your models here.
-# admin.site.register(Panner)
+admin.site.register(Container)
+admin.site.register(Panner_Articles)
+admin.site.register(Panner)
 
 # class ClientAdmin(admin.ModelAdmin):
 #     list_display = ('email', 'telephone', 'address')

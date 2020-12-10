@@ -11,9 +11,13 @@
     <link rel="stylesheet" href="{% static 'stylesheets/Semantic-UI-CSS-master/components/header.min.css' %}">
     <link rel="stylesheet" href="{% static 'stylesheets/Semantic-UI-CSS-master/components/step.min.css' %}">
     <link rel="stylesheet" href="{% static 'stylesheets/Semantic-UI-CSS-master/components/input.min.css' %}">
+    <link rel="stylesheet" href="{% static 'stylesheets/Semantic-UI-CSS-master/components/checkbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'stylesheets/Semantic-UI-CSS-master/components/form.min.css' %}">
     <link rel="stylesheet" href="{% static 'stylesheets/Semantic-UI-CSS-master/components/segment.min.css' %}">
     <link rel="stylesheet" href="{% static 'stylesheets/Semantic-UI-CSS-master/components/button.min.css' %}">
     <link rel="stylesheet" href="{% static 'stylesheets/Semantic-UI-CSS-master/components/divider.min.css' %}">
+    <link rel="stylesheet" href="{% static 'stylesheets/Semantic-UI-CSS-master/components/dropdown.min.css' %}">
+    <link rel="stylesheet" href="{% static 'stylesheets/Semantic-UI-CSS-master/components/search.min.css' %}">
     <link rel="stylesheet" href="{% static 'stylesheets/Semantic-UI-CSS-master/components/icon.min.css' %}">
     <link rel="stylesheet" href="{% static 'stylesheets/Semantic-UI-CSS-master/components/image.min.css' %}">
     <!-- <link rel="stylesheet" href="{% static 'stylesheets/bootstrap-4.5.2/dist/css/bootstrap.min.css' %}"> -->
@@ -37,16 +41,16 @@
             À propos
         </a>
         <a class="item">
-            <span class="fa fa-headphones pr-2"></span> +223 751 438 40
+            <span class="fa fa-headphones px-2"></span> +223 751 438 40
         </a>
         <a class="item">
-            <span class="fa fa-envelope-open-text pr-2"></span> elbmaiga@gmail.com
+            <span class="fa fa-envelope-open-text px-2"></span> elbmaiga@gmail.com
         </a>
         <a class="ui right item">
-            <span class="fa fa-shopping-cart pr-2"></span> Boutique
+            <span class="fa fa-shopping-cart px-2"></span> Boutique
         </a>
-        <a class="ui right item bg-sugu text-light">
-            <span class="fa fa-user pr-2"></span> Mon compte
+        <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="ui right item bg-sugu text-light">
+            <span class="fa fa-user px-2"></span> Mon compte
         </a>
     </div>
 
@@ -59,9 +63,10 @@
             </div>
             <div class="offset-sm-0 offset-md-1 offset-lg-0 col-sm-8 col-md-6 col-lg-4 mt-md-4 mt-lg-0 mt-2">
                 <a class="font-weight-bold text-decoration-none text-white bg-sugu-2 p-2 mr-lg-4" href="#"><span
-                        class="fa fa-shopping-cart pr-1"></span> 0 FCFA</a>
-                <a class="font-weight-bold text-decoration-none text-white bg-sugu-2 p-2" href="#"><span
-                        class="fa fa-user pr-1"></span> Mon compte</a>
+                        class="fa fa-shopping-cart px-1"></span> 0 FCFA</a>
+                <a data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    class="font-weight-bold text-decoration-none text-white bg-sugu-2 p-2" href="#"><span
+                        class="fa fa-user px-1"></span> Mon compte</a>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-7">
                 <form action="{% url 'search' %}" method="GET">
@@ -74,6 +79,133 @@
         </div>
     </div>
 
+    <!-- Modal for sign in -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Se connecter</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ui form">
+                        <div class="field">
+                            <label for="username">Identifiant ou Adresse email</label>
+                            <div class="ui left icon input">
+                                <input type="text" id="username" placeholder="Identifiant ou Adresse email">
+                                <i class="user icon"></i>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="password">Mot de passe</label>
+                            <div class="ui left icon input">
+                                <input type="password" id="password" placeholder="Mot de passe">
+                                <i class="lock icon"></i>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" id="s">
+                                <label for="s">Se souvenir de moi</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <button class="fluid ui button bg-sugu text-light">Se connecter</button>
+                    </div>
+                    <div class="text-center m-2">
+                        <p class="">Pas encore de compte sugu ? </p>
+                        <div class="ui buttons">
+                            <button data-bs-toggle="modal" data-bs-target="#exampleModal2"
+                                class="ui button bg-sugu-2 text-light"><span class="fa fa-users"></span> Créer un
+                                compte</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- End modal -->
+
+    <!-- Modal for sign up -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Créer un compte</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ui form">
+                        <div class="field">
+                            <label for="idetifiant">Identifiant</label>
+                            <div class="ui left icon input">
+                                <input type="text" id="idetifiant" placeholder="Identifiant">
+                                <i class="user icon"></i>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="mail">Adresse email</label>
+                            <div class="ui left icon input">
+                                <input type="email" id="mail" placeholder="Adresse email">
+                                <i class="at icon"></i>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="tel">Téléphone</label>
+                            <div class="ui left icon input">
+                                <input type="tel" id="tel" placeholder="N° Téléphone">
+                                <i class="mobile icon"></i>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="activity">Activité</label>
+                            <select id="activity" class="ui search dropdown">
+                                <option value="">Month</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="cpassword">Mot de passe</label>
+                            <div class="ui left icon input">
+                                <input type="password" id="cpassword" placeholder="Mot de passe">
+                                <i class="lock icon"></i>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="cpassword2">Confirmation de Mot de passe</label>
+                            <div class="ui left icon input">
+                                <input type="password" id="cpassword2" placeholder="Confirmation de Mot de passe">
+                                <i class="lock icon"></i>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" id="s">
+                                <label for="using">J'accepte les conditions d'utilisation</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <button class="fluid ui button bg-sugu text-light">Créer mon compte</button>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- <div class="modal-dialog modal-dialog-centered">
+        ...
+    </div> -->
+
+    <!-- End modal -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-sugu sticky-top">
         <a class="navbar-brand" href="#">Catégories</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -222,8 +354,11 @@
 
 
     <script src="{% static 'stylesheets/jquery.js' %}"></script>
-    <script src="{% static 'stylesheets/bootstrap-4.5.2/dist/js/bootstrap.bundle.js' %}"></script>
-    <!-- <script src="{% static 'stylesheets/bootstrap-5.0.0-beta1/dist/js/bootstrap.bundle.min.js' %}"></script> -->
+    <!-- <script src="{% static 'stylesheets/bootstrap-4.5.2/dist/js/bootstrap.bundle.js' %}"></script> -->
+    <script src="{% static 'stylesheets/bootstrap-5.0.0-beta1/dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'stylesheets/Semantic-UI-CSS-master/components/dropdown.min.js' %}"></script>
+    <script src="{% static 'stylesheets/sugu.js' %}"></script>
+
     <script>
         $(document).ready(function () {
             $('.article').mouseenter(function () {
